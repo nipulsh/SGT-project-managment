@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Student Dashboard | Scholarly Monolith</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-surface-variant": "#43474d",
+                        "secondary-container": "#bfddfe",
+                        "secondary-fixed-dim": "#accaea",
+                        "on-secondary-container": "#45627e",
+                        "surface-container-highest": "#cee5ff",
+                        "inverse-on-surface": "#e8f2ff",
+                        "tertiary": "#201100",
+                        "surface-bright": "#f7f9ff",
+                        "on-secondary-fixed-variant": "#2c4964",
+                        "primary-fixed-dim": "#b0c9e8",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed": "#001d33",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#e8c08c",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#001d32",
+                        "background": "#f7f9ff",
+                        "surface-container-high": "#d8eaff",
+                        "secondary-fixed": "#cee5ff",
+                        "surface-tint": "#49607c",
+                        "on-primary-fixed": "#011d35",
+                        "on-primary-container": "#7a92b0",
+                        "on-tertiary-fixed": "#291800",
+                        "surface-container-low": "#edf4ff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f7f9ff",
+                        "surface-container": "#e3efff",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#cee5ff",
+                        "primary-fixed": "#d1e4ff",
+                        "surface-dim": "#c1ddfb",
+                        "primary": "#00152a",
+                        "inverse-surface": "#16334a",
+                        "on-surface": "#001d32",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#b0c9e8",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary": "#44617d",
+                        "on-tertiary-fixed-variant": "#5d4119",
+                        "on-tertiary-container": "#ad8a5a",
+                        "primary-container": "#102a43",
+                        "tertiary-container": "#3b2400",
+                        "outline-variant": "#c3c6ce",
+                        "outline": "#74777e",
+                        "tertiary-fixed": "#ffddb4",
+                        "on-primary-fixed-variant": "#314863"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #f7f9ff; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- Side Navigation Shell (The Archivist) -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-[#edf4ff] text-[#00152a] font-['Inter'] font-semibold text-xs tracking-[0.05em] border-r border-[#c3c6ce]/20 flex flex-col p-6 space-y-2 z-40 hidden md:flex">
+<div class="mb-10 flex items-center gap-3">
+<div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+</div>
+<div>
+<h1 class="text-lg font-black text-[#00152a]">The Archivist</h1>
+<p class="text-[10px] opacity-60 uppercase tracking-widest">University Admin</p>
+</div>
+</div>
+<nav class="flex-grow space-y-1">
+<a class="bg-[#cee5ff] text-[#011d35] font-bold rounded-lg px-4 py-3 flex items-center gap-3 w-full transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Overview</span>
+</a>
+<a class="text-[#44617d] px-4 py-3 hover:bg-[#cee5ff]/50 transition-all duration-200 flex items-center gap-3 w-full" href="#">
+<span class="material-symbols-outlined" data-icon="account_tree">account_tree</span>
+<span>Projects</span>
+</a>
+<a class="text-[#44617d] px-4 py-3 hover:bg-[#cee5ff]/50 transition-all duration-200 flex items-center gap-3 w-full" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span>Expenses</span>
+</a>
+<a class="text-[#44617d] px-4 py-3 hover:bg-[#cee5ff]/50 transition-all duration-200 flex items-center gap-3 w-full" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span>Faculty Monitor</span>
+</a>
+<a class="text-[#44617d] px-4 py-3 hover:bg-[#cee5ff]/50 transition-all duration-200 flex items-center gap-3 w-full" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span>Dean Approvals</span>
+</a>
+<a class="text-[#44617d] px-4 py-3 hover:bg-[#cee5ff]/50 transition-all duration-200 flex items-center gap-3 w-full" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span>Payments</span>
+</a>
+</nav>
+<div class="pt-6 border-t border-outline-variant/20 space-y-1">
+<a class="text-[#44617d] px-4 py-3 hover:bg-[#cee5ff]/50 transition-all duration-200 flex items-center gap-3 w-full" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span>Help Center</span>
+</a>
+<a class="text-[#44617d] px-4 py-3 hover:bg-[#cee5ff]/50 transition-all duration-200 flex items-center gap-3 w-full" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Sign Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="md:ml-64 min-h-screen bg-surface">
+<!-- Top Bar Shell -->
+<header class="w-full sticky top-0 z-30 bg-[#f7f9ff] flex justify-between items-center px-8 py-4 font-['Inter'] font-medium tracking-tight">
+<div class="flex items-center gap-4">
+<div class="hidden md:block">
+<span class="text-xs font-bold uppercase tracking-widest text-secondary">Current Project</span>
+<h2 class="text-xl font-bold tracking-tighter text-[#00152a]">Neural Network Efficiency Research</h2>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full text-sm w-64 focus:ring-1 focus:ring-primary" placeholder="Search archives..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<img alt="User profile" class="w-8 h-8 rounded-full border-2 border-surface-container-high" data-alt="Close up portrait of a male university student with a professional look, wearing a neutral colored sweater, soft indoor lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApak-Rd-KS9xBUizebuhARpJ01jrPCI7usDZ_FBRMUYA58l7yUh_Pn6-oPieh25d_bSF0BeXPbNEBTSI-Pg_bjpmG20sUpuWV55in-dHeeWiq6VXBheMmOL0t1pfx8nLdk7p7Bbni3pvQIwY8TW9RD0p12LuF-lezBXMIBI8fKhmYvKJymc5zVAxzFBIR__dhzBWrFIPp_I3wwBKoxJNJRW3ecdHQkZ0JeF5KiGPmwvmfCse4DXt4ihnnj1Y21hZtswQaXi-5uNCy9"/>
+</div>
+</div>
+</header>
+<!-- Bento Grid Layout -->
+<div class="p-8 space-y-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Project Overview & Funding Status (Bento Large) -->
+<div class="lg:col-span-8 space-y-8">
+<!-- Project Stats Asymmetric Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="md:col-span-2 bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-outline-variant/10">
+<label class="text-[10px] font-bold uppercase tracking-[0.1em] text-secondary-fixed-variant mb-2 block">Project Charter</label>
+<h3 class="text-2xl font-bold text-primary mb-4">Neural Network Efficiency Research</h3>
+<p class="text-secondary leading-relaxed mb-6 font-medium">Investigating sparse weight matrices to reduce inference latency in edge-computing devices for autonomous drone navigation.</p>
+<div class="flex flex-wrap gap-8">
+<div>
+<span class="text-[10px] uppercase font-bold text-outline block mb-1">Domain</span>
+<span class="text-sm font-semibold text-primary">Artificial Intelligence</span>
+</div>
+<div>
+<span class="text-[10px] uppercase font-bold text-outline block mb-1">Assigned Faculty</span>
+<div class="flex items-center gap-2">
+<img class="w-5 h-5 rounded-full" data-alt="Senior professor with graying hair in an academic office setting, warm bookshelf background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCICf7XEn6vpbTbaDqDeExd6RGH6QoVG8imcyRFrgbQMB-ZbyggVpAccK9UD6fwYN9F2GjQx04HHE89-zq6zlC3v3iDuSAl_80mEtrYannF9qr523-JkJ5ep4hNN88Jn8u_dSQkk4iQePC4lQ8ssjemFAta583J3_PcFENeRuB-X5EGL2pDuR9FYTvCf3zTS0EU9lAo7BaK-Gt4ulMXeo2VXa2TX4EQkvVB1L7KL1rea1SRnPTZYfG3bZeArM-FxQoy6RJvq0vtl-O1"/>
+<span class="text-sm font-semibold text-primary">Dr. Alistair Vance</span>
+</div>
+</div>
+<div>
+<span class="text-[10px] uppercase font-bold text-outline block mb-1">Team Members</span>
+<div class="flex -space-x-2">
+<img class="w-6 h-6 rounded-full border-2 border-white" data-alt="student profile female portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAs-iQ_Wl_xBuKuz9cZnLYKA65Hx0Ihehhp2KNRLXLRJig6vrOXyEDgLIYXi01CXBgKPAL6sObRWR5UUKbumvscJSDR-B4yWTmYSG6W2d7gtZliWzNOkdntvGb8z7v63ALxte8GA_Af1P3IXmWeNWpEo7LXQpE1DrFGBeclYJVax972xxNv9thwzfqZ7ifqnDkPPHzV0W65WblNyPYHFAqy37hs_m4AQrBSm7VqE_CAggi22cKTGxR_84YwUJkHoxPyJ4AvdpLV44-i"/>
+<img class="w-6 h-6 rounded-full border-2 border-white" data-alt="student profile male portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6Bot8DBKvEHd_2w6byuYZPC8Eg7qy6YGcfhs-NdLf5S8o2v9CDFluLLkGwYOLzbe-L-_UGFU5ktqssbpbdXnQdFciBbfGvMRtloiWDTiIQG6Wl7jl0mFwaRRyBouqj5JFzX5ocVq6gHFLwE6jmOtVxjSK51yrS1r-DznexRP5KivkMXhUA5gsKQigidFJZDBorLhSlfM_lyG_Sv7iT6tyVf_25OB84aHXVG5tXL4aElMM57LbrLW0r7_Y08swq0QCEeFQF9xd42dd"/>
+<div class="w-6 h-6 rounded-full bg-surface-container-high border-2 border-white flex items-center justify-center text-[10px] font-bold">+2</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Funding Status Card -->
+<div class="bg-primary text-white p-8 rounded-xl flex flex-col justify-between relative overflow-hidden">
+<div class="relative z-10">
+<span class="text-[10px] font-bold uppercase tracking-[0.1em] opacity-60 mb-2 block">Grant Utilization</span>
+<h4 class="text-3xl font-black mb-1">$12,450.00</h4>
+<p class="text-xs opacity-70">Approved: $15,000.00</p>
+</div>
+<div class="mt-8 relative z-10">
+<div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary-fixed h-full w-[83%]"></div>
+</div>
+<div class="flex justify-between items-center mt-4">
+<span class="text-xs font-bold text-secondary-fixed uppercase">Status</span>
+<span class="bg-[#d1e4ff] text-[#011d35] text-[10px] font-bold px-2 py-1 rounded">PAID</span>
+</div>
+</div>
+<!-- Background accent texture -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16"></div>
+</div>
+</div>
+<!-- Progress Updates Form & Timeline -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Add Update Form -->
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/10">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="history_edu">history_edu</span>
+<h3 class="text-lg font-bold text-primary">Log Milestone</h3>
+</div>
+<form class="space-y-5">
+<div>
+<label class="text-[10px] font-bold uppercase tracking-wider text-outline block mb-2">Milestone Title</label>
+<input class="w-full bg-surface-container-low border-b-2 border-outline-variant focus:border-secondary focus:ring-0 transition-colors py-2 px-0 text-sm font-medium" placeholder="e.g., Preliminary Data Validation" type="text"/>
+</div>
+<div>
+<label class="text-[10px] font-bold uppercase tracking-wider text-outline block mb-2">Date achieved</label>
+<input class="w-full bg-surface-container-low border-b-2 border-outline-variant focus:border-secondary focus:ring-0 transition-colors py-2 px-0 text-sm font-medium" type="date"/>
+</div>
+<div>
+<label class="text-[10px] font-bold uppercase tracking-wider text-outline block mb-2">Technical Description</label>
+<textarea class="w-full bg-surface-container-low border-b-2 border-outline-variant focus:border-secondary focus:ring-0 transition-colors py-2 px-0 text-sm font-medium resize-none" placeholder="Details of the achievement..." rows="3"></textarea>
+</div>
+<button class="w-full bg-primary text-white font-bold text-xs uppercase tracking-widest py-3 rounded-md hover:opacity-90 transition-opacity">Submit Update</button>
+</form>
+</div>
+<!-- Timeline -->
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/10 overflow-hidden relative">
+<h3 class="text-lg font-bold text-primary mb-8">Academic Roadmap</h3>
+<div class="relative pl-6 space-y-8 before:content-[''] before:absolute before:left-[1.5px] before:top-2 before:bottom-2 before:w-[2px] before:bg-outline-variant/30">
+<div class="relative">
+<div class="absolute -left-[28.5px] top-1.5 w-4 h-4 rounded-full bg-primary border-4 border-white"></div>
+<span class="text-[10px] font-bold text-secondary uppercase block mb-1">Oct 24, 2023</span>
+<h4 class="text-sm font-bold text-primary">Model Weight Quantization</h4>
+<p class="text-xs text-on-surface-variant leading-relaxed">Completed initial pruning phase with 40% reduction in parameters.</p>
+</div>
+<div class="relative">
+<div class="absolute -left-[28.5px] top-1.5 w-4 h-4 rounded-full bg-outline-variant border-4 border-white"></div>
+<span class="text-[10px] font-bold text-secondary uppercase block mb-1">Oct 12, 2023</span>
+<h4 class="text-sm font-bold text-primary">Hardware Benchmarking</h4>
+<p class="text-xs text-on-surface-variant leading-relaxed">Baseline tests performed on Jetson Nano boards.</p>
+</div>
+<div class="relative opacity-50">
+<div class="absolute -left-[28.5px] top-1.5 w-4 h-4 rounded-full bg-outline-variant border-4 border-white"></div>
+<span class="text-[10px] font-bold text-secondary uppercase block mb-1">Sep 30, 2023</span>
+<h4 class="text-sm font-bold text-primary">Ethics Committee Approval</h4>
+<p class="text-xs text-on-surface-variant leading-relaxed">Final clearance obtained for field testing.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Sidebar: Expenses & Payment -->
+<div class="lg:col-span-4 space-y-8">
+<!-- Expense Summary & Bill Upload -->
+<section class="bg-surface-container-low p-8 rounded-xl border border-outline-variant/10">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-lg font-bold text-primary">Ledger Summary</h3>
+<span class="material-symbols-outlined text-secondary" data-icon="receipt_long">receipt_long</span>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-lg mb-8 shadow-sm">
+<div class="flex justify-between items-center mb-2">
+<span class="text-xs font-semibold text-secondary">Total Spent</span>
+<span class="text-xs font-bold text-primary">$2,550.00</span>
+</div>
+<div class="w-full bg-surface-container-low h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[45%]"></div>
+</div>
+<p class="text-[10px] text-outline mt-3 font-medium">Approved Budget: $5,000.00</p>
+</div>
+<form class="space-y-4">
+<label class="text-[10px] font-bold uppercase tracking-wider text-outline block mb-1">Upload New Bill</label>
+<input class="w-full bg-surface-container-lowest border-none text-sm py-3 px-4 rounded-lg focus:ring-1 focus:ring-primary" placeholder="Bill Description" type="text"/>
+<div class="flex gap-4">
+<input class="w-full bg-surface-container-lowest border-none text-sm py-3 px-4 rounded-lg focus:ring-1 focus:ring-primary" placeholder="Amount ($)" type="number"/>
+<div class="relative flex-shrink-0">
+<input class="hidden" id="bill-upload" type="file"/>
+<label class="bg-secondary text-white p-3 rounded-lg flex items-center justify-center cursor-pointer hover:bg-primary transition-colors" for="bill-upload">
+<span class="material-symbols-outlined" data-icon="upload">upload</span>
+</label>
+</div>
+</div>
+<button class="w-full border-2 border-primary text-primary font-bold text-[10px] uppercase tracking-widest py-3 rounded-md hover:bg-primary hover:text-white transition-all">Record Transaction</button>
+</form>
+</section>
+<!-- Payment Details Card -->
+<section class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/10 shadow-lg">
+<h3 class="text-lg font-bold text-primary mb-6">Disbursement Info</h3>
+<div class="space-y-5">
+<div class="grid grid-cols-2 gap-4">
+<div class="col-span-2">
+<label class="text-[10px] font-bold uppercase text-outline block mb-1">Account Holder</label>
+<p class="text-sm font-semibold text-primary">Julian R. Sterling</p>
+</div>
+<div>
+<label class="text-[10px] font-bold uppercase text-outline block mb-1">Account Number</label>
+<p class="text-sm font-semibold text-primary">**** 8821</p>
+</div>
+<div>
+<label class="text-[10px] font-bold uppercase text-outline block mb-1">IFSC Code</label>
+<p class="text-sm font-semibold text-primary">ARCH00112</p>
+</div>
+</div>
+<div class="pt-6 border-t border-outline-variant/10 text-center">
+<label class="text-[10px] font-bold uppercase text-outline block mb-4">Official Payment QR</label>
+<div class="inline-block p-4 bg-surface-container-low rounded-xl relative group">
+<img alt="Payment QR Code" class="w-32 h-32 opacity-80 mix-blend-multiply" data-alt="A clean, digital QR code on a stark white background with subtle rounded corners" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBarpDXs2cqy8h7VW4UrYRxETAmqmFXepdwLaTy4AqeM2vLrqWb9p33d0058iylpQCfbFDBcZTTpgVkt_hELvLR5MaUS-09UoLrOTcb72cHvXzahKl8UdaBHxlJjZnBN8UwqDmx6j7jy2tlktL2d8L3-AeDYRCmFpmoq_NZflY6NTJKxzqzOXrq1cyFJ-leLUxJ4q6wCkWZqQ79r4Hn9cJ5cVB6s2TEeqvcfM4gA-BS9pfMwU-5qT4UMSigtUfsKPSBnkQ5p3Bdv-dc"/>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-primary/10 rounded-xl cursor-pointer">
+<span class="bg-white px-3 py-1 text-[10px] font-bold rounded-full shadow-sm text-primary">Change QR</span>
+</div>
+</div>
+</div>
+<button class="w-full bg-surface-container-low text-primary font-bold text-[10px] uppercase tracking-widest py-3 rounded-md flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
+                                Update Payment Method
+                            </button>
+</div>
+</section>
+</div>
+</div>
+</div>
+</main>
+<!-- Mobile Navigation Shell -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface-container-lowest border-t border-outline-variant/10 flex justify-around items-center py-3 z-50">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-[10px] font-bold">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-secondary" href="#">
+<span class="material-symbols-outlined" data-icon="account_tree">account_tree</span>
+<span class="text-[10px] font-bold">Research</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-secondary" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="text-[10px] font-bold">Funds</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-secondary" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[10px] font-bold">Profile</span>
+</a>
+</nav>
+</body></html>

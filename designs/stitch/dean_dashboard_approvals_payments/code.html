@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dean Dashboard | Scholarly Monolith</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface-variant": "#43474d",
+              "secondary-container": "#bfddfe",
+              "secondary-fixed-dim": "#accaea",
+              "on-secondary-container": "#45627e",
+              "surface-container-highest": "#cee5ff",
+              "inverse-on-surface": "#e8f2ff",
+              "tertiary": "#201100",
+              "surface-bright": "#f7f9ff",
+              "on-secondary-fixed-variant": "#2c4964",
+              "primary-fixed-dim": "#b0c9e8",
+              "on-error-container": "#93000a",
+              "on-secondary-fixed": "#001d33",
+              "on-error": "#ffffff",
+              "tertiary-fixed-dim": "#e8c08c",
+              "on-secondary": "#ffffff",
+              "on-background": "#001d32",
+              "background": "#f7f9ff",
+              "surface-container-high": "#d8eaff",
+              "secondary-fixed": "#cee5ff",
+              "surface-tint": "#49607c",
+              "on-primary-fixed": "#011d35",
+              "on-primary-container": "#7a92b0",
+              "on-tertiary-fixed": "#291800",
+              "surface-container-low": "#edf4ff",
+              "surface-container-lowest": "#ffffff",
+              "surface": "#f7f9ff",
+              "surface-container": "#e3efff",
+              "error": "#ba1a1a",
+              "surface-variant": "#cee5ff",
+              "primary-fixed": "#d1e4ff",
+              "surface-dim": "#c1ddfb",
+              "primary": "#00152a",
+              "inverse-surface": "#16334a",
+              "on-surface": "#001d32",
+              "on-tertiary": "#ffffff",
+              "inverse-primary": "#b0c9e8",
+              "on-primary": "#ffffff",
+              "error-container": "#ffdad6",
+              "secondary": "#44617d",
+              "on-tertiary-fixed-variant": "#5d4119",
+              "on-tertiary-container": "#ad8a5a",
+              "primary-container": "#102a43",
+              "tertiary-container": "#3b2400",
+              "outline-variant": "#c3c6ce",
+              "outline": "#74777e",
+              "tertiary-fixed": "#ffddb4",
+              "on-primary-fixed-variant": "#314863"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- TopNavBar -->
+<header class="w-full sticky top-0 z-50 bg-[#f7f9ff] dark:bg-slate-950 flex justify-between items-center px-8 py-4 w-full font-['Inter'] font-medium tracking-tight">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-[#00152a] dark:text-white">Scholarly Monolith</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-[#00152a] dark:text-white border-b-2 border-[#00152a] dark:border-blue-400 cursor-pointer active:opacity-70 transition-opacity" href="#">Overview</a>
+<a class="text-[#44617d] dark:text-slate-400 hover:text-[#00152a] dark:hover:text-white transition-colors duration-200 cursor-pointer" href="#">Archive</a>
+<a class="text-[#44617d] dark:text-slate-400 hover:text-[#00152a] dark:hover:text-white transition-colors duration-200 cursor-pointer" href="#">Directory</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="bg-[#edf4ff] dark:bg-slate-900 rounded-full px-4 py-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary scale-75">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-48" placeholder="Search archive..." type="text"/>
+</div>
+<span class="material-symbols-outlined text-secondary cursor-pointer">notifications</span>
+<span class="material-symbols-outlined text-secondary cursor-pointer">settings</span>
+<div class="h-8 w-8 rounded-full overflow-hidden bg-surface-container-high border border-outline-variant/20">
+<img alt="User profile" data-alt="professional portrait of a senior academic official in formal attire against a neutral architectural background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1plbrgnH2W1QuPXQlDsbQ-DV8e8t9TL5k8ktpqgZjzx3nth7IEaybE9B024EWW0GGVyTcYhWfQonVWUDhkOdRG8ShnkY6NFcnnb76xMiup95x_2xN3qWtEryAEhfmgwT5kpeKFL_FOXs4PMD-hPaV0x1hCX3rdo-JqBzgPB5AGjC_J8cQzcp2vE7KJv9sqSsBDQEbiRFGLakUvY_ewjwk2fAS6uATP-MtNfunAnp0DKmpwd82niaTY0e_DWRjzkcp0fffEzfRDex1"/>
+</div>
+</div>
+</header>
+<div class="flex">
+<!-- SideNavBar -->
+<nav class="h-screen w-64 fixed left-0 top-16 bg-[#edf4ff] dark:bg-slate-900 border-r border-[#c3c6ce]/20 dark:border-slate-800 flex flex-col h-full p-6 space-y-2 font-['Inter'] font-semibold text-xs tracking-[0.05em] uppercase">
+<div class="mb-8 px-2">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 bg-primary rounded flex items-center justify-center text-white font-black text-lg">A</div>
+<div>
+<div class="text-lg font-black text-[#00152a] dark:text-white normal-case tracking-normal">The Archivist</div>
+<div class="text-[10px] text-secondary opacity-70">University Admin</div>
+</div>
+</div>
+</div>
+<a class="flex items-center gap-3 w-full text-[#44617d] hover:bg-[#cee5ff]/50 px-4 py-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span> Overview
+            </a>
+<a class="flex items-center gap-3 w-full text-[#44617d] hover:bg-[#cee5ff]/50 px-4 py-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="account_tree">account_tree</span> Projects
+            </a>
+<a class="flex items-center gap-3 w-full text-[#44617d] hover:bg-[#cee5ff]/50 px-4 py-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span> Expenses
+            </a>
+<a class="flex items-center gap-3 w-full text-[#44617d] hover:bg-[#cee5ff]/50 px-4 py-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span> Faculty Monitor
+            </a>
+<a class="flex items-center gap-3 w-full bg-[#cee5ff] dark:bg-blue-900/40 text-[#011d35] dark:text-blue-100 font-bold rounded-lg px-4 py-3" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span> Dean Approvals
+            </a>
+<a class="flex items-center gap-3 w-full text-[#44617d] hover:bg-[#cee5ff]/50 px-4 py-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span> Payments
+            </a>
+<div class="mt-auto pt-8 flex flex-col space-y-1">
+<a class="flex items-center gap-3 w-full text-[#44617d] px-4 py-3 hover:bg-[#cee5ff]/50 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span> Help Center
+                </a>
+<a class="flex items-center gap-3 w-full text-[#44617d] px-4 py-3 hover:bg-[#cee5ff]/50 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span> Sign Out
+                </a>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="ml-64 flex-1 p-10 max-w-7xl">
+<header class="mb-12">
+<h1 class="text-display-lg text-4xl font-extrabold tracking-tight text-primary mb-2">Dean’s Executive Dashboard</h1>
+<p class="text-secondary font-medium tracking-wide label-md uppercase">Institutional Governance &amp; Fiscal Oversight</p>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Project Approval Queue -->
+<section class="col-span-12 lg:col-span-8 bg-surface-container-lowest rounded-xl p-8 transition-all duration-200 hover:bg-surface-container-high border border-outline-variant/10">
+<div class="flex justify-between items-center mb-10">
+<div>
+<h2 class="text-xl font-bold tracking-tight text-primary">Pending Project Approvals</h2>
+<p class="text-sm text-secondary">Review and authorize new research submissions</p>
+</div>
+<span class="bg-primary-fixed text-on-primary-fixed px-3 py-1 rounded text-xs font-bold uppercase tracking-wider">4 Pending</span>
+</div>
+<div class="space-y-10">
+<!-- Project Item 1 -->
+<div class="group">
+<div class="flex justify-between items-start mb-4">
+<div class="flex gap-4">
+<div class="h-12 w-12 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">science</span>
+</div>
+<div>
+<h3 class="font-bold text-lg text-primary">Quantum Mesh Networking in Urban Transit</h3>
+<p class="text-sm text-secondary">Principal Investigator: Dr. Aris Thorne • Dept. of Engineering</p>
+</div>
+</div>
+<div class="text-right">
+<div class="text-sm font-bold text-primary">$45,000.00</div>
+<div class="text-[10px] uppercase tracking-widest text-secondary">Requested Grant</div>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-lg p-4 mb-4">
+<label class="label-md uppercase text-[10px] block mb-2 text-secondary font-bold tracking-widest">Dean's Review Remarks</label>
+<textarea class="w-full bg-transparent border-none focus:ring-0 text-sm p-0 placeholder:italic" placeholder="Enter feedback or mandatory revisions..."></textarea>
+</div>
+<div class="flex gap-3 justify-end">
+<button class="px-6 py-2 rounded-md text-sm font-bold text-error hover:bg-error-container/20 transition-colors">Reject Submission</button>
+<button class="px-8 py-2 bg-primary text-white rounded-md text-sm font-bold hover:opacity-90 transition-opacity">Approve Project</button>
+</div>
+</div>
+<!-- Project Item 2 -->
+<div class="group opacity-90">
+<div class="flex justify-between items-start mb-4">
+<div class="flex gap-4">
+<div class="h-12 w-12 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">history_edu</span>
+</div>
+<div>
+<h3 class="font-bold text-lg text-primary">Archival Preservation of Mid-Century Manuscripts</h3>
+<p class="text-sm text-secondary">Principal Investigator: Prof. Elena Voss • Faculty of Arts</p>
+</div>
+</div>
+<div class="text-right">
+<div class="text-sm font-bold text-primary">$12,400.00</div>
+<div class="text-[10px] uppercase tracking-widest text-secondary">Requested Grant</div>
+</div>
+</div>
+<div class="flex gap-3 justify-end">
+<button class="px-6 py-2 rounded-md text-sm font-bold text-secondary hover:text-primary transition-colors">View Full Proposal</button>
+<button class="px-8 py-2 bg-primary text-white rounded-md text-sm font-bold hover:opacity-90 transition-opacity">Approve</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Grant Allocation Panel -->
+<section class="col-span-12 lg:col-span-4 space-y-8">
+<div class="bg-primary text-white rounded-xl p-8 relative overflow-hidden">
+<div class="relative z-10">
+<h2 class="text-xs uppercase tracking-widest font-bold opacity-70 mb-4">Available Budget</h2>
+<div class="text-3xl font-black mb-1">$1,420,000.00</div>
+<p class="text-xs opacity-60">Fiscal Year 2024 • Academic Reserve</p>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-[120px]" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-6 border border-outline-variant/10">
+<h3 class="font-bold text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">payments</span>
+                            Grant Disbursement
+                        </h3>
+<div class="space-y-6">
+<div>
+<label class="label-md uppercase text-[10px] block mb-2 text-secondary font-bold tracking-widest">Selected Project</label>
+<div class="text-sm font-medium text-primary">Bio-Synthetic Skin Research</div>
+</div>
+<div>
+<label class="label-md uppercase text-[10px] block mb-2 text-secondary font-bold tracking-widest">Requested Amount</label>
+<div class="text-lg font-bold text-secondary">$32,000.00</div>
+</div>
+<div>
+<label class="label-md uppercase text-[10px] block mb-2 text-secondary font-bold tracking-widest">Final Approved Grant</label>
+<div class="flex items-center gap-2 bg-surface-container-lowest rounded px-3 border-b-2 border-outline-variant">
+<span class="text-secondary font-bold">$</span>
+<input class="w-full bg-transparent border-none focus:ring-0 font-bold text-primary" placeholder="32,000" type="text"/>
+</div>
+</div>
+<button class="w-full py-3 bg-secondary text-white rounded-md font-bold text-sm hover:bg-primary transition-colors">Confirm Grant Allocation</button>
+</div>
+</div>
+</section>
+<!-- Payment Processing -->
+<section class="col-span-12 bg-surface-container-lowest rounded-xl p-8 border border-outline-variant/10">
+<div class="flex justify-between items-end mb-10">
+<div>
+<h2 class="text-xl font-bold tracking-tight text-primary">Active Disbursement Queue</h2>
+<p class="text-sm text-secondary">Authorize student stipend and research fund payouts</p>
+</div>
+<div class="flex gap-4">
+<button class="flex items-center gap-2 px-4 py-2 border border-outline-variant/30 rounded-md text-xs font-bold text-secondary hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-sm">filter_list</span> Filter
+                            </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-high rounded-md text-xs font-bold text-primary hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-sm">download</span> Export Batch
+                            </button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="border-b border-outline-variant/10">
+<th class="pb-4 font-bold text-[10px] uppercase tracking-widest text-secondary">Researcher / Project</th>
+<th class="pb-4 font-bold text-[10px] uppercase tracking-widest text-secondary">Bank Details</th>
+<th class="pb-4 font-bold text-[10px] uppercase tracking-widest text-secondary">Amount</th>
+<th class="pb-4 font-bold text-[10px] uppercase tracking-widest text-secondary">QR Verification</th>
+<th class="pb-4 font-bold text-[10px] uppercase tracking-widest text-secondary">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/5">
+<tr class="group">
+<td class="py-6">
+<div class="font-bold text-primary">Marcus Halloway</div>
+<div class="text-xs text-secondary italic">Neural Interface Beta-Testing</div>
+</td>
+<td class="py-6">
+<div class="text-xs font-mono text-secondary">SWIFT: SCHLUS44</div>
+<div class="text-xs font-mono text-primary">AC: ****9021</div>
+</td>
+<td class="py-6">
+<div class="font-bold text-primary">$2,500.00</div>
+<div class="text-[10px] text-on-primary-fixed bg-primary-fixed px-2 py-0.5 rounded-full inline-block">Stipend</div>
+</td>
+<td class="py-6">
+<div class="h-10 w-10 bg-white border border-outline-variant/30 p-1 flex items-center justify-center rounded">
+<img alt="QR Code" data-alt="close up of a digital square QR code with intricate black and white patterns on a clean white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDo-UFrfAgRYL4RwZiMr03GVrfnqZ0vC6ECaLqzwCqzmB0k8LLHHPYDgihkaGmdJnpj_NPtsgA6MlHS6R2zZIYRnrph5sseh0lX9UpF7Qtbv12bPhuL7i9IFQJgTMpnPZ1-LJvHlfQDD4SZFiimFwhGincxyh25VN12sDMzJSfZnDL_v947Z8FkVyHAJlb5IWfaSIKuebfGhjueO8lHsjEDaIhPWHNpW6l9LbzIB5Xd1bJ0SjNEiDuznLxEIzMmyYJKwfszKcfcbGjR"/>
+</div>
+</td>
+<td class="py-6">
+<button class="px-6 py-2 bg-primary text-white rounded-md text-xs font-bold hover:opacity-90">Mark as Paid</button>
+</td>
+</tr>
+<tr class="group">
+<td class="py-6">
+<div class="font-bold text-primary">Sarah Jenkins</div>
+<div class="text-xs text-secondary italic">Marine Biodiversity Sensors</div>
+</td>
+<td class="py-6">
+<div class="text-xs font-mono text-secondary">SWIFT: SCHLUS44</div>
+<div class="text-xs font-mono text-primary">AC: ****1156</div>
+</td>
+<td class="py-6">
+<div class="font-bold text-primary">$8,450.00</div>
+<div class="text-[10px] text-on-tertiary-fixed bg-tertiary-fixed px-2 py-0.5 rounded-full inline-block">Equipment</div>
+</td>
+<td class="py-6">
+<div class="h-10 w-10 bg-white border border-outline-variant/30 p-1 flex items-center justify-center rounded">
+<img alt="QR Code" data-alt="a detailed cryptographic QR code pattern on a white surface for transaction validation" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAbuy9_5DIkYogV9-aSutz_nc-GBCaHJyyzAPaMNX_MyPYMIutyMnwa59THXvfWe1Rlrdiush4TkGwpjwoW1lGa4AE7oZ2LVxf6faWROw_olAjEvgYZ169A7BJ_F5aJTjA0GnpPuBoiNuJl5jkpUFeHLG8cynrqz0zXFpa--TpZheTGZmf3s0vgjUAcH4NmuyXaF3QDeLQ9VPjinALQ6xz_UNXhR_E-PFZarrCuR04Z5JlAzT4CXufR2HgsqVZArOC0_sHBblLgayL"/>
+</div>
+</td>
+<td class="py-6">
+<button class="px-6 py-2 bg-primary text-white rounded-md text-xs font-bold hover:opacity-90">Mark as Paid</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Receipt Upload & History -->
+<section class="col-span-12 lg:col-span-5 bg-surface-container-low rounded-xl p-8">
+<h2 class="text-xl font-bold tracking-tight text-primary mb-6">Receipt Upload</h2>
+<div class="border-2 border-dashed border-outline-variant rounded-xl p-10 flex flex-col items-center justify-center text-center hover:bg-surface-container-highest transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-4xl text-secondary mb-4 group-hover:scale-110 transition-transform">cloud_upload</span>
+<div class="font-bold text-primary mb-1">Drag and drop receipts</div>
+<p class="text-xs text-secondary max-w-[200px]">Link transactions to digital proof of payment (PDF, PNG, JPG)</p>
+<input class="hidden" type="file"/>
+<button class="mt-6 px-6 py-2 bg-secondary text-white rounded-md text-xs font-bold">Select Files</button>
+</div>
+</section>
+<section class="col-span-12 lg:col-span-7 bg-surface-container-lowest rounded-xl p-8 border border-outline-variant/10">
+<div class="flex justify-between items-center mb-8">
+<h2 class="text-xl font-bold tracking-tight text-primary">Payment History</h2>
+<a class="text-xs font-bold text-secondary hover:text-primary underline underline-offset-4" href="#">View All Archive</a>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-4 bg-surface-container rounded-lg">
+<div class="flex items-center gap-4">
+<div class="h-10 w-10 bg-white rounded flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">description</span>
+</div>
+<div>
+<div class="font-bold text-sm text-primary">TRX-9921-X0</div>
+<div class="text-[10px] text-secondary">Oct 12, 2023 • $1,200.00</div>
+</div>
+</div>
+<button class="material-symbols-outlined text-secondary hover:text-primary">download</button>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container rounded-lg">
+<div class="flex items-center gap-4">
+<div class="h-10 w-10 bg-white rounded flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">description</span>
+</div>
+<div>
+<div class="font-bold text-sm text-primary">TRX-8843-A1</div>
+<div class="text-[10px] text-secondary">Oct 11, 2023 • $4,500.00</div>
+</div>
+</div>
+<button class="material-symbols-outlined text-secondary hover:text-primary">download</button>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container rounded-lg">
+<div class="flex items-center gap-4">
+<div class="h-10 w-10 bg-white rounded flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">description</span>
+</div>
+<div>
+<div class="font-bold text-sm text-primary">TRX-7710-C9</div>
+<div class="text-[10px] text-secondary">Oct 09, 2023 • $850.00</div>
+</div>
+</div>
+<button class="material-symbols-outlined text-secondary hover:text-primary">download</button>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+</body></html>

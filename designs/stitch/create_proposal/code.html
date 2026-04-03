@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Scholarly Monolith - Create New Proposal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed-dim": "#b0c9e8",
+              "surface-container-low": "#edf4ff",
+              "surface-bright": "#f7f9ff",
+              "on-primary": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-secondary-container": "#45627e",
+              "primary-fixed": "#d1e4ff",
+              "on-tertiary-container": "#ad8a5a",
+              "secondary": "#44617d",
+              "on-surface-variant": "#43474d",
+              "on-primary-container": "#7a92b0",
+              "on-surface": "#001d32",
+              "on-secondary-fixed": "#001d33",
+              "error": "#ba1a1a",
+              "primary": "#00152a",
+              "surface": "#f7f9ff",
+              "primary-container": "#102a43",
+              "on-primary-fixed": "#011d35",
+              "tertiary": "#201100",
+              "inverse-primary": "#b0c9e8",
+              "inverse-surface": "#16334a",
+              "surface-container-high": "#d8eaff",
+              "secondary-fixed": "#cee5ff",
+              "on-error": "#ffffff",
+              "secondary-fixed-dim": "#accaea",
+              "on-secondary": "#ffffff",
+              "surface-tint": "#49607c",
+              "background": "#f7f9ff",
+              "surface-container-highest": "#cee5ff",
+              "secondary-container": "#bfddfe",
+              "inverse-on-surface": "#e8f2ff",
+              "outline": "#74777e",
+              "tertiary-container": "#3b2400",
+              "on-tertiary-fixed": "#291800",
+              "on-primary-fixed-variant": "#314863",
+              "on-tertiary-fixed-variant": "#5d4119",
+              "on-error-container": "#93000a",
+              "on-secondary-fixed-variant": "#2c4964",
+              "surface-variant": "#cee5ff",
+              "tertiary-fixed-dim": "#e8c08c",
+              "outline-variant": "#c3c6ce",
+              "surface-dim": "#c1ddfb",
+              "surface-container": "#e3efff",
+              "on-tertiary": "#ffffff",
+              "tertiary-fixed": "#ffddb4",
+              "surface-container-lowest": "#ffffff",
+              "on-background": "#001d32"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 flex flex-col py-8 h-screen w-64 bg-[#edf4ff] dark:bg-slate-900 text-[#00152a] dark:text-blue-50 z-50">
+<div class="px-6 mb-10">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+</div>
+<div>
+<h1 class="text-lg font-bold text-[#00152a] leading-none">Project Portal</h1>
+<p class="text-[0.65rem] uppercase tracking-wider text-secondary opacity-70">Academic Management</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center px-6 py-3 gap-3 bg-[#cee5ff] dark:bg-blue-900/40 text-[#00152a] dark:text-blue-100 rounded-r-full font-bold transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="description" style="font-variation-settings: 'FILL' 1;">description</span>
+<span class="label-md uppercase tracking-[0.05em]">Proposals</span>
+</a>
+<a class="flex items-center px-6 py-3 gap-3 text-[#44617d] dark:text-slate-400 hover:bg-[#f7f9ff] dark:hover:bg-slate-800 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+<span class="label-md uppercase tracking-[0.05em]">Milestones</span>
+</a>
+<a class="flex items-center px-6 py-3 gap-3 text-[#44617d] dark:text-slate-400 hover:bg-[#f7f9ff] dark:hover:bg-slate-800 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="library_books">library_books</span>
+<span class="label-md uppercase tracking-[0.05em]">Resources</span>
+</a>
+<a class="flex items-center px-6 py-3 gap-3 text-[#44617d] dark:text-slate-400 hover:bg-[#f7f9ff] dark:hover:bg-slate-800 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span class="label-md uppercase tracking-[0.05em]">Analytics</span>
+</a>
+<a class="flex items-center px-6 py-3 gap-3 text-[#44617d] dark:text-slate-400 hover:bg-[#f7f9ff] dark:hover:bg-slate-800 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="label-md uppercase tracking-[0.05em]">Settings</span>
+</a>
+</nav>
+<div class="mt-auto px-6 space-y-1">
+<a class="flex items-center py-3 gap-3 text-[#44617d] dark:text-slate-400 hover:bg-[#f7f9ff] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span class="label-md uppercase tracking-[0.05em]">Support</span>
+</a>
+<a class="flex items-center py-3 gap-3 text-[#44617d] dark:text-slate-400 hover:bg-[#f7f9ff] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="label-md uppercase tracking-[0.05em]">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-64 min-h-screen flex flex-col">
+<!-- TopAppBar Shell -->
+<header class="flex justify-between items-center w-full px-10 h-16 bg-[#f7f9ff] dark:bg-slate-950 sticky top-0 z-40">
+<div class="flex items-center gap-6">
+<h2 class="text-xl font-bold text-[#00152a] dark:text-blue-50 tracking-tight font-headline">Create New Proposal</h2>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</header>
+<!-- Canvas Area -->
+<div class="flex-1 p-12 bg-surface">
+<div class="max-w-4xl mx-auto">
+<!-- Success Toast Simulation -->
+<div class="mb-10 p-4 bg-primary-fixed text-on-primary-fixed rounded-xl flex items-center gap-4 shadow-sm border border-primary-fixed-dim/20">
+<span class="material-symbols-outlined text-on-primary-fixed" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<p class="text-sm font-medium">Draft saved locally at 10:42 AM. All changes are synchronized with Scholarly Monolith.</p>
+</div>
+<!-- Structured Submission Form -->
+<form class="space-y-10">
+<!-- Form Section: Identity -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+<div class="col-span-1">
+<h3 class="title-lg font-bold text-primary mb-2">Project Identity</h3>
+<p class="text-sm text-secondary leading-relaxed">Define the core metadata for your research inquiry. This information will be used for archival cataloging.</p>
+</div>
+<div class="col-span-2 space-y-8 p-8 bg-surface-container-lowest rounded-xl shadow-sm">
+<!-- Title Input -->
+<div class="group">
+<label class="label-md uppercase tracking-[0.05em] text-secondary block mb-2">Proposal Title</label>
+<input class="w-full bg-transparent border-0 border-b-2 border-outline-variant focus:border-secondary focus:ring-0 transition-colors py-3 text-lg font-medium text-primary placeholder:text-outline/40" placeholder="e.g., Quantum Decoherece in Neural Networks" type="text"/>
+</div>
+<!-- Domain & Funding Row -->
+<div class="grid grid-cols-2 gap-8">
+<div>
+<label class="label-md uppercase tracking-[0.05em] text-secondary block mb-2">Domain</label>
+<select class="w-full bg-transparent border-0 border-b-2 border-outline-variant focus:border-secondary focus:ring-0 transition-colors py-3 text-primary">
+<option>AI &amp; Machine Learning</option>
+<option>Web Systems</option>
+<option>Internet of Things (IoT)</option>
+<option>Quantum Computing</option>
+<option>Bio-Informatics</option>
+</select>
+</div>
+<div>
+<label class="label-md uppercase tracking-[0.05em] text-secondary block mb-2">Funding Required (USD)</label>
+<input class="w-full bg-transparent border-0 border-b-2 border-outline-variant focus:border-secondary focus:ring-0 transition-colors py-3 text-primary" placeholder="0.00" type="number"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Form Section: Narrative -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+<div class="col-span-1">
+<h3 class="title-lg font-bold text-primary mb-2">Abstract &amp; Scope</h3>
+<p class="text-sm text-secondary leading-relaxed">Provide a comprehensive description of the research objectives and expected scholarly impact.</p>
+</div>
+<div class="col-span-2 space-y-8 p-8 bg-surface-container-lowest rounded-xl shadow-sm">
+<!-- Description -->
+<div>
+<label class="label-md uppercase tracking-[0.05em] text-secondary block mb-2">Project Description</label>
+<textarea class="w-full bg-transparent border-0 border-b-2 border-outline-variant focus:border-secondary focus:ring-0 transition-colors py-3 text-primary resize-none" placeholder="Describe the methodology, goals, and institutional relevance..." rows="6"></textarea>
+<p class="mt-2 text-[0.7rem] text-outline text-right">0 / 2500 Characters</p>
+</div>
+</div>
+</div>
+<!-- Form Section: Documentation -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+<div class="col-span-1">
+<h3 class="title-lg font-bold text-primary mb-2">Institutional Proof</h3>
+<p class="text-sm text-secondary leading-relaxed">Upload formal documentation including letters of recommendation or preliminary datasets.</p>
+</div>
+<div class="col-span-2">
+<!-- File Upload Area -->
+<div class="group relative p-12 bg-surface-container-low border-2 border-dashed border-outline-variant rounded-xl transition-all hover:bg-surface-container-high flex flex-col items-center justify-center gap-4">
+<input class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" type="file"/>
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-secondary" data-icon="cloud_upload">cloud_upload</span>
+</div>
+<div class="text-center">
+<p class="text-sm font-semibold text-primary">Upload Proposal File</p>
+<p class="text-xs text-secondary mt-1">PDF, DOCX up to 25MB</p>
+</div>
+</div>
+<!-- Error Validation Message Style Simulation -->
+<div class="mt-4 p-3 bg-error-container text-on-error-container rounded-lg flex items-center gap-3 animate-pulse">
+<span class="material-symbols-outlined text-sm" data-icon="error">error</span>
+<p class="text-[0.75rem] font-medium">Please ensure the proposal document follows the Institutional Formatting Guide.</p>
+</div>
+</div>
+</div>
+<!-- Form Actions -->
+<div class="flex items-center justify-end gap-6 pt-8 border-t border-outline-variant/20">
+<button class="text-secondary label-md uppercase tracking-widest hover:text-primary transition-all" type="button">Save as Draft</button>
+<button class="px-8 py-4 bg-primary text-on-primary rounded-md flex items-center gap-3 shadow-lg shadow-primary/10 hover:opacity-90 active:scale-[0.98] transition-all" type="submit">
+<span class="label-md uppercase tracking-widest font-bold">Submit Proposal</span>
+<span class="material-symbols-outlined text-[1.2rem]" data-icon="arrow_right_alt">arrow_right_alt</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+<!-- Footer Shell -->
+<footer class="w-full py-12 px-10 flex flex-col items-center gap-4 bg-[#f7f9ff] dark:bg-slate-950 border-t border-[#c3c6ce]/20">
+<div class="flex gap-8">
+<a class="text-[#44617d] dark:text-slate-500 text-[0.75rem] font-inter tracking-wide hover:text-[#00152a] transition-opacity" href="#">Privacy Policy</a>
+<a class="text-[#44617d] dark:text-slate-500 text-[0.75rem] font-inter tracking-wide hover:text-[#00152a] transition-opacity" href="#">Terms of Service</a>
+<a class="text-[#44617d] dark:text-slate-500 text-[0.75rem] font-inter tracking-wide hover:text-[#00152a] transition-opacity" href="#">Accessibility</a>
+<a class="text-[#44617d] dark:text-slate-500 text-[0.75rem] font-inter tracking-wide hover:text-[#00152a] transition-opacity" href="#">IT Support</a>
+</div>
+<p class="text-[#44617d] dark:text-slate-500 text-[0.75rem] font-inter tracking-wide opacity-60">© 2024 Institutional Research Office</p>
+</footer>
+</main>
+</body></html>

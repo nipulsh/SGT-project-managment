@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Your Profile - Scholarly Monolith</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed-dim": "#b0c9e8",
+              "surface-container-low": "#edf4ff",
+              "surface-bright": "#f7f9ff",
+              "on-primary": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-secondary-container": "#45627e",
+              "primary-fixed": "#d1e4ff",
+              "on-tertiary-container": "#ad8a5a",
+              "secondary": "#44617d",
+              "on-surface-variant": "#43474d",
+              "on-primary-container": "#7a92b0",
+              "on-surface": "#001d32",
+              "on-secondary-fixed": "#001d33",
+              "error": "#ba1a1a",
+              "primary": "#00152a",
+              "surface": "#f7f9ff",
+              "primary-container": "#102a43",
+              "on-primary-fixed": "#011d35",
+              "tertiary": "#201100",
+              "inverse-primary": "#b0c9e8",
+              "inverse-surface": "#16334a",
+              "surface-container-high": "#d8eaff",
+              "secondary-fixed": "#cee5ff",
+              "on-error": "#ffffff",
+              "secondary-fixed-dim": "#accaea",
+              "on-secondary": "#ffffff",
+              "surface-tint": "#49607c",
+              "background": "#f7f9ff",
+              "surface-container-highest": "#cee5ff",
+              "secondary-container": "#bfddfe",
+              "inverse-on-surface": "#e8f2ff",
+              "outline": "#74777e",
+              "tertiary-container": "#3b2400",
+              "on-tertiary-fixed": "#291800",
+              "on-primary-fixed-variant": "#314863",
+              "on-tertiary-fixed-variant": "#5d4119",
+              "on-error-container": "#93000a",
+              "on-secondary-fixed-variant": "#2c4964",
+              "surface-variant": "#cee5ff",
+              "tertiary-fixed-dim": "#e8c08c",
+              "outline-variant": "#c3c6ce",
+              "surface-dim": "#c1ddfb",
+              "surface-container": "#e3efff",
+              "on-tertiary": "#ffffff",
+              "tertiary-fixed": "#ffddb4",
+              "surface-container-lowest": "#ffffff",
+              "on-background": "#001d32"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 flex flex-col py-8 bg-[#edf4ff] dark:bg-slate-900 text-[#00152a] dark:text-blue-50 h-screen w-64 z-50">
+<div class="px-6 mb-10">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-fixed-dim" data-icon="account_balance">account_balance</span>
+</div>
+<div>
+<h1 class="text-lg font-bold text-[#00152a] leading-tight">Project Portal</h1>
+<p class="text-[0.65rem] uppercase tracking-wider text-secondary">Academic Management</p>
+</div>
+</div>
+<button class="w-full py-3 bg-primary text-on-primary rounded-md text-sm font-semibold flex items-center justify-center gap-2 transition-all active:opacity-80">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                New Proposal
+            </button>
+</div>
+<nav class="flex-grow space-y-1">
+<a class="flex items-center gap-4 px-6 py-3 text-[#44617d] dark:text-slate-400 hover:bg-[#f7f9ff] dark:hover:bg-slate-800 transition-all label-md uppercase tracking-[0.05em] font-inter" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+                Proposals
+            </a>
+<a class="flex items-center gap-4 px-6 py-3 text-[#44617d] dark:text-slate-400 hover:bg-[#f7f9ff] dark:hover:bg-slate-800 transition-all label-md uppercase tracking-[0.05em] font-inter" href="#">
+<span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+                Milestones
+            </a>
+<a class="flex items-center gap-4 px-6 py-3 text-[#44617d] dark:text-slate-400 hover:bg-[#f7f9ff] dark:hover:bg-slate-800 transition-all label-md uppercase tracking-[0.05em] font-inter" href="#">
+<span class="material-symbols-outlined" data-icon="library_books">library_books</span>
+                Resources
+            </a>
+<a class="flex items-center gap-4 px-6 py-3 text-[#44617d] dark:text-slate-400 hover:bg-[#f7f9ff] dark:hover:bg-slate-800 transition-all label-md uppercase tracking-[0.05em] font-inter" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+                Analytics
+            </a>
+<!-- Active Navigation Logic: Profile/Settings Page maps to Settings tab -->
+<a class="flex items-center gap-4 px-6 py-3 bg-[#cee5ff] dark:bg-blue-900/40 text-[#00152a] dark:text-blue-100 rounded-r-full font-bold label-md uppercase tracking-[0.05em] font-inter" href="#">
+<span class="material-symbols-outlined" data-icon="settings" style="font-variation-settings: 'FILL' 1;">settings</span>
+                Settings
+            </a>
+</nav>
+<div class="px-6 mt-auto space-y-1">
+<a class="flex items-center gap-4 py-3 text-[#44617d] dark:text-slate-400 hover:text-primary transition-all label-md uppercase tracking-[0.05em]" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+                Support
+            </a>
+<a class="flex items-center gap-4 py-3 text-[#44617d] dark:text-slate-400 hover:text-error transition-all label-md uppercase tracking-[0.05em]" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                Logout
+            </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen">
+<!-- TopAppBar Placeholder for Contextual Consistency -->
+<header class="flex justify-between items-center w-full px-10 h-16 bg-[#f7f9ff] dark:bg-slate-950">
+<h2 class="text-xl font-bold text-[#00152a] dark:text-blue-50 font-inter tracking-tight">Your Profile</h2>
+<div class="flex items-center gap-4">
+<button class="p-2 text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden border border-outline-variant/20">
+<img class="w-full h-full object-cover" data-alt="Professional studio portrait of a young academic with spectacles, clean lighting and a neutral blurred background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwV3AWO3CHJj9c6omQO3xbjkUi7Q7MWyo-VLMhQSXR0nd6vawi0lp4MdBW3SHV1gr7h0GGULMG2m7zDvXluAUZpWxpFl10W5pfmXJE7V7DHcxYp_TCAfO-9Xa7TejYAl82Z2S6lsOlJGC0f7cPfOcVztMSmng8X_YnFjd2OxJIqo6SqJRhWMveF7_ttORlCA1shuf9f1PEwe3gR-QQEP68UoeCkzIEAtzY69heMnKff0UelLCnF3QjufY7EWc0dPzkw_hx8Ve_qjsy"/>
+</div>
+</div>
+</header>
+<div class="max-w-4xl mx-auto py-12 px-10">
+<!-- Profile Identity Card -->
+<section class="bg-surface-container-lowest rounded-xl p-8 mb-10 transition-all hover:bg-surface-container-high group relative">
+<div class="flex justify-between items-start mb-8">
+<div class="flex items-center gap-8">
+<div class="w-24 h-24 rounded-xl overflow-hidden ring-4 ring-surface-container-low shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Close up portrait of a student in a library setting with warm ambient lighting and bookshelves in the background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATsORrOyti98MLDAczr5_eYLv_GlQYt5sal-R_rOQCr6Oqpv5X92AkaNdqhHQLa6qqX2V-Q5-RVU_UwRfKydtNTRNHd6s57qE2KpSyHa1Qy4zs8HLEbKGx9UL5Ct1JkGVpkAcgseu7qdhPSf5eA5WYHAAR77hf4-tiHYn3EeX0k6-NUQHQr7LZP98VI2w3si2s-o_V42XTpGPDTLi54EJEbxxLnK_J1zrq70EiUDEFFbVpZSdqPwdl9So1ibdZeXYMQ3bcrgvcehd5"/>
+</div>
+<div>
+<div class="mb-1">
+<label class="label-md uppercase tracking-[0.05em] text-secondary">Full Name</label>
+<h3 class="text-2xl font-extrabold text-primary tracking-tight">Julian Thorne</h3>
+</div>
+<div class="flex items-center gap-3">
+<span class="bg-primary-fixed text-on-primary-fixed px-3 py-1 rounded text-xs font-bold uppercase tracking-wider">Student</span>
+<span class="text-secondary text-sm font-medium">Research Fellow • Dept. of History</span>
+</div>
+</div>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 border-2 border-outline-variant/30 text-secondary hover:text-primary hover:border-primary transition-all rounded-md text-sm font-bold">
+<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+                        Edit Profile
+                    </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-12">
+<div class="space-y-1 border-b-2 border-outline-variant/10 pb-2">
+<label class="label-md uppercase tracking-[0.05em] text-secondary block">University Email</label>
+<p class="text-on-surface font-medium">j.thorne@scholarly.edu</p>
+</div>
+<div class="space-y-1 border-b-2 border-outline-variant/10 pb-2">
+<label class="label-md uppercase tracking-[0.05em] text-secondary block">University ID</label>
+<p class="text-on-surface font-medium">SID-99284-AX</p>
+</div>
+<div class="space-y-1 border-b-2 border-outline-variant/10 pb-2">
+<label class="label-md uppercase tracking-[0.05em] text-secondary block">Research Area</label>
+<p class="text-on-surface font-medium">Ancient Manuscript Archiving</p>
+</div>
+<div class="space-y-1 border-b-2 border-outline-variant/10 pb-2">
+<label class="label-md uppercase tracking-[0.05em] text-secondary block">Institutional Access</label>
+<p class="text-on-surface font-medium">Level 4: Archives &amp; Restricted Collections</p>
+</div>
+</div>
+</section>
+<!-- Activity Summary Bento Grid -->
+<div class="mb-12">
+<h4 class="label-md uppercase tracking-[0.1em] text-secondary mb-6 font-bold px-1">Activity Summary</h4>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Total Projects -->
+<div class="bg-surface-container-low p-6 rounded-xl border-l-4 border-primary">
+<div class="flex justify-between items-center mb-4">
+<span class="material-symbols-outlined text-primary" data-icon="folder_special">folder_special</span>
+<span class="text-[0.7rem] font-bold text-secondary-fixed-dim uppercase tracking-tighter">Metric 01</span>
+</div>
+<p class="text-3xl font-extrabold text-primary mb-1">24</p>
+<p class="label-md uppercase text-secondary">Total Proposals</p>
+</div>
+<!-- Approved -->
+<div class="bg-surface-container-low p-6 rounded-xl border-l-4 border-on-primary-fixed-variant">
+<div class="flex justify-between items-center mb-4">
+<span class="material-symbols-outlined text-on-primary-fixed-variant" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-[0.7rem] font-bold text-secondary-fixed-dim uppercase tracking-tighter">Metric 02</span>
+</div>
+<p class="text-3xl font-extrabold text-primary mb-1">18</p>
+<p class="label-md uppercase text-secondary">Approved Nodes</p>
+</div>
+<!-- Pending -->
+<div class="bg-surface-container-low p-6 rounded-xl border-l-4 border-on-tertiary-fixed-variant">
+<div class="flex justify-between items-center mb-4">
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant" data-icon="pending" style="font-variation-settings: 'FILL' 1;">pending</span>
+<span class="text-[0.7rem] font-bold text-secondary-fixed-dim uppercase tracking-tighter">Metric 03</span>
+</div>
+<p class="text-3xl font-extrabold text-primary mb-1">06</p>
+<p class="label-md uppercase text-secondary">Under Review</p>
+</div>
+</div>
+</div>
+<!-- Detailed Activity / Timeline Hint -->
+<section class="bg-surface-container-lowest rounded-xl p-8 border border-outline-variant/10">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-secondary" data-icon="history">history</span>
+<h4 class="text-lg font-bold text-primary tracking-tight">Recent Archives Access</h4>
+</div>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<div class="mt-1 w-2 h-2 rounded-full bg-primary ring-4 ring-surface-container-low"></div>
+<div>
+<p class="text-sm font-bold text-primary">Accessed Collection: "The Vatican Manuscripts Vol II"</p>
+<p class="text-xs text-secondary mt-0.5">2 hours ago • Digitization Lab 4</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="mt-1 w-2 h-2 rounded-full bg-outline-variant"></div>
+<div>
+<p class="text-sm font-bold text-primary">Submitted Milestone: "Preliminary Taxonomy Report"</p>
+<p class="text-xs text-secondary mt-0.5">Yesterday, 4:45 PM • Scholarly Project Portal</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="mt-1 w-2 h-2 rounded-full bg-outline-variant"></div>
+<div>
+<p class="text-sm font-bold text-primary">Proposal Approved: "The Rosetta Stylus Project"</p>
+<p class="text-xs text-secondary mt-0.5">Oct 12, 2024 • Institutional Review Board</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer Details -->
+<div class="mt-12 flex flex-col items-center gap-4">
+<p class="text-[0.75rem] font-inter tracking-wide text-secondary/60">
+                    Member since: January 14, 2022
+                </p>
+<div class="flex gap-6">
+<a class="text-[0.75rem] font-inter tracking-wide text-[#44617d] hover:text-[#00152a] transition-all" href="#">Privacy Policy</a>
+<a class="text-[0.75rem] font-inter tracking-wide text-[#44617d] hover:text-[#00152a] transition-all" href="#">IT Support</a>
+</div>
+<p class="text-[0.7rem] font-inter tracking-widest text-secondary/40 mt-4 uppercase">
+                    © 2024 Institutional Research Office
+                </p>
+</div>
+</div>
+</main>
+<!-- Contextual FAB (Hidden on Profile as per Suppression Logic) -->
+<!-- Navigation Shell handled by SideNavBar -->
+</body></html>

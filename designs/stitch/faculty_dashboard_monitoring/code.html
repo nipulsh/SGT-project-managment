@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Faculty Dashboard | Scholarly Monolith</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-surface-variant": "#43474d",
+                        "secondary-container": "#bfddfe",
+                        "secondary-fixed-dim": "#accaea",
+                        "on-secondary-container": "#45627e",
+                        "surface-container-highest": "#cee5ff",
+                        "inverse-on-surface": "#e8f2ff",
+                        "tertiary": "#201100",
+                        "surface-bright": "#f7f9ff",
+                        "on-secondary-fixed-variant": "#2c4964",
+                        "primary-fixed-dim": "#b0c9e8",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed": "#001d33",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#e8c08c",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#001d32",
+                        "background": "#f7f9ff",
+                        "surface-container-high": "#d8eaff",
+                        "secondary-fixed": "#cee5ff",
+                        "surface-tint": "#49607c",
+                        "on-primary-fixed": "#011d35",
+                        "on-primary-container": "#7a92b0",
+                        "on-tertiary-fixed": "#291800",
+                        "surface-container-low": "#edf4ff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f7f9ff",
+                        "surface-container": "#e3efff",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#cee5ff",
+                        "primary-fixed": "#d1e4ff",
+                        "surface-dim": "#c1ddfb",
+                        "primary": "#00152a",
+                        "inverse-surface": "#16334a",
+                        "on-surface": "#001d32",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#b0c9e8",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary": "#44617d",
+                        "on-tertiary-fixed-variant": "#5d4119",
+                        "on-tertiary-container": "#ad8a5a",
+                        "primary-container": "#102a43",
+                        "tertiary-container": "#3b2400",
+                        "outline-variant": "#c3c6ce",
+                        "outline": "#74777e",
+                        "tertiary-fixed": "#ffddb4",
+                        "on-primary-fixed-variant": "#314863"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface flex overflow-hidden">
+<!-- SideNavBar (The Anchor) -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-[#edf4ff] dark:bg-slate-900 border-r border-[#c3c6ce]/20 dark:border-slate-800 flex flex-col p-6 space-y-2 z-50">
+<div class="mb-10 px-4">
+<h1 class="text-lg font-black text-[#00152a] dark:text-white">The Archivist</h1>
+<p class="text-[10px] font-semibold tracking-[0.05em] uppercase text-[#44617d]">University Admin</p>
+</div>
+<nav class="flex-1 space-y-1">
+<div class="flex items-center gap-3 w-full text-[#44617d] dark:text-slate-400 px-4 py-3 hover:bg-[#cee5ff]/50 dark:hover:bg-slate-800 transition-all duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-semibold text-xs tracking-[0.05em] uppercase">Overview</span>
+</div>
+<div class="flex items-center gap-3 w-full text-[#44617d] dark:text-slate-400 px-4 py-3 hover:bg-[#cee5ff]/50 dark:hover:bg-slate-800 transition-all duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="account_tree">account_tree</span>
+<span class="font-semibold text-xs tracking-[0.05em] uppercase">Projects</span>
+</div>
+<div class="flex items-center gap-3 w-full text-[#44617d] dark:text-slate-400 px-4 py-3 hover:bg-[#cee5ff]/50 dark:hover:bg-slate-800 transition-all duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-semibold text-xs tracking-[0.05em] uppercase">Expenses</span>
+</div>
+<div class="flex items-center gap-3 w-full bg-[#cee5ff] dark:bg-blue-900/40 text-[#011d35] dark:text-blue-100 font-bold rounded-lg px-4 py-3 transition-all duration-200">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span class="font-semibold text-xs tracking-[0.05em] uppercase">Faculty Monitor</span>
+</div>
+<div class="flex items-center gap-3 w-full text-[#44617d] dark:text-slate-400 px-4 py-3 hover:bg-[#cee5ff]/50 dark:hover:bg-slate-800 transition-all duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span class="font-semibold text-xs tracking-[0.05em] uppercase">Dean Approvals</span>
+</div>
+<div class="flex items-center gap-3 w-full text-[#44617d] dark:text-slate-400 px-4 py-3 hover:bg-[#cee5ff]/50 dark:hover:bg-slate-800 transition-all duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-semibold text-xs tracking-[0.05em] uppercase">Payments</span>
+</div>
+</nav>
+<div class="pt-6 border-t border-outline-variant/10">
+<div class="flex items-center gap-3 w-full text-[#44617d] px-4 py-3 hover:bg-[#cee5ff]/50 transition-all duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-semibold text-xs tracking-[0.05em] uppercase">Help Center</span>
+</div>
+<div class="flex items-center gap-3 w-full text-[#44617d] px-4 py-3 hover:bg-[#cee5ff]/50 transition-all duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-semibold text-xs tracking-[0.05em] uppercase">Sign Out</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 flex-1 h-screen overflow-y-auto bg-surface">
+<!-- TopNavBar -->
+<header class="w-full sticky top-0 z-40 bg-[#f7f9ff] dark:bg-slate-950 flex justify-between items-center px-8 py-4">
+<div class="flex items-center gap-6 flex-1">
+<div class="relative w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-secondary text-lg">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-md text-sm focus:ring-1 focus:ring-primary-container placeholder:text-on-primary-container/50" placeholder="Search research nodes..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-secondary cursor-pointer hover:text-primary transition-colors" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-secondary cursor-pointer hover:text-primary transition-colors" data-icon="settings">settings</span>
+</div>
+<div class="flex items-center gap-3 pl-6 border-l border-outline-variant/20">
+<div class="text-right">
+<p class="text-xs font-bold text-primary">Dr. Julian Sterling</p>
+<p class="text-[10px] text-secondary">Senior Research Faculty</p>
+</div>
+<img alt="User profile" class="w-10 h-10 rounded-full border-2 border-primary-fixed" data-alt="professional headshot of a middle-aged academic man with glasses in a formal suit against a neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2KE_CXbAqyDZVS2OgyJI2bkjpZEqE9pHACpA0gjlvDqNaTgChngXfjlen540crzFzi2rzXqu3TcCyEfU3w2E2oj7cEapJXaWIrRB-_E2VJtW6JRrbig4N0XloPCDWrMqUZ2LptlUQ70LZST1DNbO_VKEntvWKd_wNPO2JGjYhyQql5EqyKcxBe5JFsQzrs_gB7vMk3g2KH-L3We3NUCz1UM98YIdZATVbz3QwHdHOCLGDqAiZ9KGZ5lZbevBEumMTA6IachTKhT42"/>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="p-10 max-w-7xl mx-auto space-y-12">
+<!-- Header Section -->
+<section class="flex justify-between items-end">
+<div>
+<h2 class="text-4xl font-black text-primary tracking-tighter leading-none mb-2">Faculty Monitoring</h2>
+<p class="text-secondary font-medium uppercase tracking-widest text-[11px]">Academic Term: Fall 2024 • Active Research Clusters</p>
+</div>
+<div class="flex gap-3">
+<div class="px-4 py-2 bg-surface-container-low rounded-md border border-outline-variant/20 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-secondary" data-icon="visibility">visibility</span>
+<span class="text-[10px] font-bold uppercase tracking-wider text-secondary">Read Only Mode</span>
+</div>
+</div>
+</section>
+<!-- Main Layout: Asymmetric Bento -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Left Column: Project List -->
+<div class="col-span-12 lg:col-span-5 space-y-6">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-xs font-bold uppercase tracking-[0.1em] text-secondary">Assigned Projects (4)</h3>
+</div>
+<!-- Project Cards -->
+<div class="space-y-4">
+<!-- Card 1: Active -->
+<div class="group p-6 bg-surface-container-highest border-l-4 border-primary rounded-r-xl transition-all duration-300 shadow-sm cursor-pointer">
+<div class="flex justify-between items-start mb-4">
+<span class="px-2 py-1 bg-primary-fixed text-on-primary-fixed text-[9px] font-bold uppercase tracking-widest rounded">Active</span>
+<span class="text-[10px] font-medium text-secondary">ID: ARC-9920</span>
+</div>
+<h4 class="text-lg font-bold text-primary mb-2 group-hover:text-primary-container transition-colors">Neural Mapping for Cognitive Linguistic Recovery</h4>
+<div class="flex items-center gap-4 mt-6">
+<div class="flex -space-x-2">
+<img class="w-6 h-6 rounded-full border-2 border-white" data-alt="female researcher portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpe0UAGDUjpP8Gv4tpds8HtQARUq3OYfg8tADPHuLQbZmNcQAVfjNKZFG0WCUdvOjlidTYYPOjyrINDX7-RgMEg072t7mqcArk5i5vQLIwCtboxVsCTsgkIcgbh3XbVhyjEB9oLhNE9-mtdWp85LqjhUNufnoK-tRBxdHBuWmoaoUhyFc89cPA5sgCEigeH0b5YskOMPzCzyweSoIpYha8lsGUKjjnQEYLQURZNzMG6Z2rnwB8T_-QKqBsx4Hs2BUA4AGQzX0C1489"/>
+<img class="w-6 h-6 rounded-full border-2 border-white" data-alt="male researcher portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKny_8pbokbZcUicxZEn-1Gbb6dlPn6J1IP93nS8uWRZl8tVPfJQINa0ECyPFki5obsANLMmOl1mssRoE5xVG43W4fWaNrhzAEdqtc_yPe07HWo9S3ILsUImMoGtAokZ6YHsNReOWZSxgpF4u0oVYz_vGvK8TOUnTWDN2io-b4Ft-dUKHD6xzicNvzL9B1gOj1JOz3CXb38HKW0n_DinsvpPlOLoFnwLW_MEPasNLe4xdBdDYFoA8GRP516tTwxzKtgvFXov0wjjzB"/>
+<div class="w-6 h-6 rounded-full bg-secondary-container text-[8px] flex items-center justify-center font-bold text-secondary">+3</div>
+</div>
+<div class="flex-1 h-1 bg-white/50 rounded-full overflow-hidden">
+<div class="w-3/4 h-full bg-primary rounded-full"></div>
+</div>
+<span class="text-[10px] font-bold text-primary">75%</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group p-6 bg-surface-container-lowest hover:bg-surface-container-high transition-all duration-300 rounded-xl cursor-pointer">
+<div class="flex justify-between items-start mb-4">
+<span class="px-2 py-1 bg-tertiary-fixed text-on-tertiary-fixed text-[9px] font-bold uppercase tracking-widest rounded">Pending Review</span>
+<span class="text-[10px] font-medium text-secondary">ID: ARC-8104</span>
+</div>
+<h4 class="text-lg font-bold text-primary mb-2">Quantum Cryptography Standards in Public Sector</h4>
+<div class="flex items-center gap-4 mt-6">
+<div class="flex -space-x-2">
+<img class="w-6 h-6 rounded-full border-2 border-white" data-alt="graduate student avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1FZh9wjYhbZhtxo-QnTn8SufUv2i-l8KZ8wXiuFNN7bk_q7S2FQcKaxZviuOvjtPFAghCNqznNq_wwyW3YLP2PXqElHUDTKHB6N0IV0ruviw1boyWCXpH5lzSnqHKYDZKoX3PKI229JcHQCRYXBmchuJwAbaAV9E32Sslco943LZx4OD2Mg-iqR1Uu5p0Dsv5C9BauqbiAaa8aiLjkz4kppsC4_r0g5H8LUPNRlpI7nvMnjYvSPowV-hHP6N3r_WjH0Q8yXPWbilJ"/>
+<img class="w-6 h-6 rounded-full border-2 border-white" data-alt="research assistant avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCS2x68h5RyAyFsN4aachFj4J7F2u_T-T_mEZxvcBs0O725Tm8_iJIdWqL_rttTOqOdirPt9TZy02UGiN4oXGKsoiNF_uKyzkjoWxe63ug-5CfR3dHEDSf1z77PaY6BhlMC9NeHGegvKIwySCAq__ynpMffo33-2YTOG9iYgyu8LtZt1ifAoYI7OfQqbUeEfhfDY3tzczyc4ombxA8AHRSalefzcMhdEsiRw-SpYFIBxC2aHwHdIhhjs6A4tMSTArQWqAZp--NcHeUB"/>
+</div>
+<div class="flex-1 h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="w-1/4 h-full bg-secondary rounded-full"></div>
+</div>
+<span class="text-[10px] font-bold text-secondary">25%</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group p-6 bg-surface-container-lowest hover:bg-surface-container-high transition-all duration-300 rounded-xl cursor-pointer">
+<div class="flex justify-between items-start mb-4">
+<span class="px-2 py-1 bg-primary-fixed text-on-primary-fixed text-[9px] font-bold uppercase tracking-widest rounded">Active</span>
+<span class="text-[10px] font-medium text-secondary">ID: ARC-7721</span>
+</div>
+<h4 class="text-lg font-bold text-primary mb-2">Sustainable Architecture: Post-Urban Heat Mitigation</h4>
+<div class="flex items-center gap-4 mt-6">
+<div class="flex -space-x-2">
+<img class="w-6 h-6 rounded-full border-2 border-white" data-alt="architectural scholar avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMtxTkBUF5NOMvdBTOe3xBNaULQey9psg2ikYlGu0QYxYqUWwIDVGRIJGzClxow_CIXnvFRQ3VjhJqZhpzrSnS82JGLXEGPV5CpwLmaw1TQlclfKFYjICA0iqEzk1ICmjdMmieRBMj1PN6gr1N-tVeKEAaHcacKv6dQTJZvQsgkzl843gr65rIefIgX6svWQ0JHzOE3esLq0lVjMvZZoCcE3ZTfN7GE5xCEJ6aQG6wcrSyIA8iOdEIrtBOunkDY12NWNA8sO4owWeq"/>
+</div>
+<div class="flex-1 h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="w-1/2 h-full bg-primary rounded-full"></div>
+</div>
+<span class="text-[10px] font-bold text-primary">50%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Project Details (Read-only) -->
+<div class="col-span-12 lg:col-span-7 bg-surface-container-low p-8 rounded-2xl space-y-10">
+<!-- Detail Header -->
+<div class="border-b border-outline-variant/30 pb-6">
+<div class="flex justify-between items-start mb-4">
+<h2 class="text-2xl font-black text-primary tracking-tight">Neural Mapping for Cognitive Linguistic Recovery</h2>
+<span class="material-symbols-outlined text-secondary opacity-40" data-icon="lock">lock</span>
+</div>
+<p class="text-sm text-secondary leading-relaxed max-w-2xl">
+                            Investigation into the neuroplastic response of the Broca area following targeted ischemic events. The study utilizes high-resolution fMRI and EEG mapping to identify emergent pathways in rehabilitation.
+                        </p>
+</div>
+<div class="grid grid-cols-2 gap-10">
+<!-- Assigned Students -->
+<div class="space-y-4">
+<h3 class="text-[10px] font-black uppercase tracking-[0.2em] text-secondary">Student Researchers</h3>
+<div class="space-y-3">
+<div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-outline-variant/10">
+<img class="w-8 h-8 rounded-full" data-alt="portrait of Elena Vance" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlvoPraRVzpfo1_IWZ6ObnFfkwEW4bwjgQjx3bRgtUTzo66tlof7-ypYXMyUxKt_c8Ja-tL-z7vVFW6OiX9YNAS0iTnGK66kCJy5lqtPyJ3p9sJCHy_MxTToKEKto4bQDDfcXD8ucmlHpyNHvP_Ua0D1Cc90qKNtQY5xl5DQqUbdHT8dkbU7WuqeThsqSvRWBpllzqil3RKdvbRwt_rUlEb5556p8hhzCNKMev1b3COVW88943PleXt-uGAirbbAN7ympVLu7tFPPR"/>
+<div>
+<p class="text-xs font-bold text-primary">Elena Vance</p>
+<p class="text-[10px] text-secondary">PhD Candidate, Neuroscience</p>
+</div>
+<span class="material-symbols-outlined ml-auto text-secondary text-sm" data-icon="contact_page">contact_page</span>
+</div>
+<div class="flex items-center gap-3 p-3 bg-white rounded-lg border border-outline-variant/10">
+<img class="w-8 h-8 rounded-full" data-alt="portrait of Marcus Holloway" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFgurJ_Cj9VCSn8W2IxzYY-BK0sp7WExgpLl7NpYt6v8koP1K2AiRavdU2pSjAgwyY05niyFhvGSIXQBrOy__8FBxaa3Grf0pMm3_vs-1K6LwCrmHqTtH88HG2M1X_oeNt2DBrmKvRlm4akT9nC3dTRZexQiprVgq9tEqRlMun2eyGXIeltdKJT7FlguhAqFTqprs9LpCrua_YLYZ_BOgVDu1WKL-d8pX98jr3-Lk9bwqLPIaXF0MC94CVyIb2pplawAE9WGHJoTuB"/>
+<div>
+<p class="text-xs font-bold text-primary">Marcus Holloway</p>
+<p class="text-[10px] text-secondary">Senior Research Assistant</p>
+</div>
+<span class="material-symbols-outlined ml-auto text-secondary text-sm" data-icon="contact_page">contact_page</span>
+</div>
+</div>
+</div>
+<!-- Financial Oversight -->
+<div class="space-y-4">
+<h3 class="text-[10px] font-black uppercase tracking-[0.2em] text-secondary">Expense Audit</h3>
+<div class="p-4 bg-white rounded-lg border border-outline-variant/10">
+<div class="flex justify-between items-center mb-4">
+<p class="text-[10px] font-bold text-secondary uppercase">Budget Utilization</p>
+<p class="text-xs font-black text-primary">$42,500 / $60,000</p>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center text-[11px]">
+<span class="text-secondary">Lab Supplies</span>
+<span class="font-bold">$12,400</span>
+</div>
+<div class="flex justify-between items-center text-[11px]">
+<span class="text-secondary">fMRI Slot Rental</span>
+<span class="font-bold">$28,000</span>
+</div>
+<div class="flex justify-between items-center text-[11px]">
+<span class="text-secondary">Participant Stipends</span>
+<span class="font-bold">$2,100</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Progress Timeline (Academic Roadmap) -->
+<div class="space-y-6">
+<h3 class="text-[10px] font-black uppercase tracking-[0.2em] text-secondary">Research Timeline</h3>
+<div class="relative pl-8 space-y-8">
+<!-- Timeline Track -->
+<div class="absolute left-[3.5px] top-2 bottom-2 w-[1px] bg-outline-variant opacity-30"></div>
+<!-- Timeline Node 1 -->
+<div class="relative">
+<div class="absolute -left-[32px] top-1 w-2 h-2 rounded-full bg-primary ring-4 ring-primary-fixed"></div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="text-xs font-bold text-primary uppercase tracking-tight">Phase 1: Participant Enrollment</h4>
+<p class="text-[11px] text-secondary mt-1">Cohort of 25 individuals secured and screened.</p>
+</div>
+<span class="text-[10px] font-bold text-secondary uppercase bg-surface-container px-2 py-0.5 rounded">Completed Sept 12</span>
+</div>
+</div>
+<!-- Timeline Node 2 -->
+<div class="relative">
+<div class="absolute -left-[32px] top-1 w-2 h-2 rounded-full bg-primary ring-4 ring-primary-fixed"></div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="text-xs font-bold text-primary uppercase tracking-tight">Phase 2: Baseline fMRI Scans</h4>
+<p class="text-[11px] text-secondary mt-1">Pre-intervention neural activity mapping in progress.</p>
+</div>
+<span class="text-[10px] font-bold text-primary-container uppercase bg-primary-fixed px-2 py-0.5 rounded">In Progress</span>
+</div>
+</div>
+<!-- Timeline Node 3 -->
+<div class="relative">
+<div class="absolute -left-[32px] top-1 w-2 h-2 rounded-full bg-outline-variant"></div>
+<div class="flex justify-between items-start opacity-50">
+<div>
+<h4 class="text-xs font-bold text-primary uppercase tracking-tight">Phase 3: Interim Data Synthesis</h4>
+<p class="text-[11px] text-secondary mt-1">Scheduled analysis of primary linguistic markers.</p>
+</div>
+<span class="text-[10px] font-bold text-secondary uppercase">Due Oct 30</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Note -->
+<div class="pt-8 flex items-center justify-center gap-2 border-t border-outline-variant/10">
+<span class="material-symbols-outlined text-sm text-secondary" data-icon="info">info</span>
+<p class="text-[10px] text-secondary font-medium uppercase tracking-widest text-center">Documentation strictly controlled by University Ethics Committee</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB Suppression (Per Instructions: Suppress on Details/Dashboard) -->
+<!-- Navigation Responsive Pivot (On Mobile - Placeholder for requirement alignment) -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-surface-container-low flex justify-around items-center px-4 border-t border-outline-variant/10 z-[60]">
+<span class="material-symbols-outlined text-primary" data-icon="dashboard">dashboard</span>
+<span class="material-symbols-outlined text-secondary" data-icon="account_tree">account_tree</span>
+<span class="material-symbols-outlined text-secondary" data-icon="monitoring" style="font-variation-settings: 'FILL' 1;">monitoring</span>
+<span class="material-symbols-outlined text-secondary" data-icon="settings">settings</span>
+</div>
+</body></html>
