@@ -115,16 +115,39 @@ export async function fetchDeanApprovalsData() {
   };
 }
 
-export async function fetchDeanDirectory() {
+/** Project row plus whether the dean still owes payment proof for an approved grant. */
+export type DeanDirectoryRow = ProjectRow & {
+  paymentIncomplete: boolean;
+};
+
+export async function fetchDeanDirectory(): Promise<DeanDirectoryRow[]> {
   const supabase = await createClient();
-  const { data } = await supabase
-    .from("projects")
-    .select("*")
-    .order("created_at", { ascending: false });
-  return (data ?? []) as ProjectRow[];
+  const [{ data: projects }, { data: pendingPay }] = await Promise.all([
+    supabase
+      .from("projects")
+      .select("*")
+      .order("created_at", { ascending: false }),
+    supabase
+      .from("payments")
+      .select("project_id")
+      .eq("status", "pending")
+      .gt("approved_amount", 0),
+  ]);
+
+  const pendingPaymentProjectIds = new Set(
+    (pendingPay ?? []).map((r) => r.project_id),
+  );
+
+  return (projects ?? []).map((p) => {
+    const row = p as ProjectRow;
+    return {
+      ...row,
+      paymentIncomplete: pendingPaymentProjectIds.has(row.id),
+    };
+  });
 }
 
-export async function fetchDeanApprovedProjects() {
+export async function fetchDeanApprovedProjects(): Promise<DeanDirectoryRow[]> {
   const directory = await fetchDeanDirectory();
   return directory.filter((p) => p.status === "approved");
 }
